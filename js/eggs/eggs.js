@@ -1,6 +1,6 @@
 function _clearIdleTimers() {
-  [_resultIdleTimer,_settingsIdleTimer,_achsIdleTimer,_homeIdleTimer].forEach(t=>t&&clearTimeout(t));
-  _resultIdleTimer=_settingsIdleTimer=_achsIdleTimer=_homeIdleTimer=null;
+  [_resultIdleTimer,_settingsIdleTimer,_achsIdleTimer,_homeIdleTimer,_cipherIdleTimer].forEach(t=>t&&clearTimeout(t));
+  _resultIdleTimer=_settingsIdleTimer=_achsIdleTimer=_homeIdleTimer=_cipherIdleTimer=null;
 }
 function _setScreenIdleTimers() {
   _clearIdleTimers();
@@ -12,6 +12,8 @@ function _setScreenIdleTimers() {
     _achsIdleTimer=setTimeout(()=>{ triggerEgg('egg_achs_idle','🔍','実績鑑賞家','実績を20秒眺めた🔍'); _achsIdleTimer=null; },20000);
   if(G.screen==='home')
     _homeIdleTimer=setTimeout(()=>{ triggerEgg('egg_home_idle','💤','怠惰なホーマー','ホームで60秒ぼーっとした💤'); _homeIdleTimer=null; },60000);
+  if(G.screen==='cipher')
+    _cipherIdleTimer=setTimeout(()=>{ triggerEgg('egg_cipher_idle','🤔','暗号に悩む者','暗号解読室で15秒考え込んだ🤔'); _cipherIdleTimer=null; },15000);
 }
 
 function showEggToast(icon, name, msg) {
@@ -63,6 +65,9 @@ function checkEggAtResult() {
   const cor2=G.res.filter(Boolean).length, tot2=G.res.length;
   if(tot2>0 && Math.round(cor2/tot2*100)===42) triggerEgg('egg_42','🌌','宇宙の答え','正答率42%！宇宙の答えだ🌌');
   if(nm.includes('42')) triggerEgg('egg_name_42','✨','42という名の者','名前に42が入ってる！✨');
+  // 67%（67=ゆき）
+  if(tot2>0 && Math.round(cor2/tot2*100)===67) triggerEgg('egg_67pct','🎿','ゆきの数字','正答率67%！ゆきの数字だ🎿');
+  if(nl.includes('ゆき')||nl.includes('yuki')) triggerEgg('egg_name_yuki','❄️','ゆきという名','名前に「ゆき」が…67と関係が？❄️');
   // 神速パーフェクト
   if(tot2>=5 && cor2===tot2 && G.elapsedSec<10) triggerEgg('egg_perfect_fast','🚀','神速パーフェクト','満点を10秒未満で達成！🚀');
 }
@@ -91,10 +96,12 @@ function goMoon()   { triggerEgg('egg_moon','🌙','月の図書館','地下2階
 
 function _checkAllRooms() {
   const allRooms = ['basement','void','garden','debug','basement2','basement3','radio','lab','moon','mirror',
-                    'origin','founders','redacted','monitor','shadow','signal','archive_c'];
+                    'origin','founders','redacted','monitor','shadow','signal','archive_c',
+                    'mystery_person','cipher'];
   allRooms.forEach(r => { if(G.screen===r) _visitedRooms.add(r); });
   const needed = ['basement','void','garden','debug','radio','lab','moon','mirror',
-                  'origin','founders','redacted','monitor','shadow','signal','archive_c'];
+                  'origin','founders','redacted','monitor','shadow','signal','archive_c',
+                  'mystery_person','cipher'];
   if(needed.every(r => _visitedRooms.has(r))) {
     triggerEgg('egg_all_rooms','🗺️','全部屋制覇','全ての隠し部屋を制覇！🗺️');
     // 最終部屋も解放

@@ -8,8 +8,12 @@
 
 - 単語(隠語)とその意味を4〜6択クイズ形式で出題
 - 6モード:通常クイズ / サバイバル(1ミスで終了) / 逆クイズ(意味→隠語) / タイムアタック(60秒) / ハード(6択) / ネタ(カオス選択肢)
-- ランク制度、実績(164種)、統計、ランキング(Supabase連携)、多数の隠しイースターエッグ
-- 管理者ブロードキャスト機能(バナー配信)
+- ランク制度、実績(174種)、統計、ランキング(Supabase連携)、多数の隠しイースターエッグ・隠し部屋(17部屋+ストーリー)
+- 管理者ブロードキャスト機能(バナー配信、パスワードはSHA-256ハッシュで保管)
+
+### 隠しストーリーについて
+
+地下室(`basement`)を起点に、起源記録・創設者の記録・機密ファイル・監視ログなど17の隠し部屋を巡ると最終部屋「真実」(`final`)に到達する。さらに機密ファイル室/放送局の秘密チャンネルから「謎の人物ファイル(`mystery_person`)」→「暗号解読室(`cipher`)」を発見・解読すると、「真実」画面に隠しボタンが出現し「エピローグ(`epilogue`)」へ進める、という2段構えの隠しストーリーになっている。新しい部屋・実績を追加する際は既存の世界観(SIBAKO語・創始者スビニィナボンバルディロ・「記録するな。記憶せよ。」の法則など)と矛盾しないようにすること。
 
 ## 技術構成
 
@@ -24,6 +28,7 @@ js/
     vocab.js
     supabase-config.js
     achievements-data.js
+    achievements-story.js  追加実績(ジブラ・ジブラ〜エピローグ系)
     ranks.js
     flavor-text.js
   core/             共通ロジック(設定・モーダル・保存・ユーティリティ・ゲーム状態)
@@ -34,6 +39,7 @@ js/
     game-state.js
   eggs/
     eggs.js         イースターエッグ発火・隠し部屋への遷移ロジック
+    eggs-story.js   新ストーリー(謎の人物/暗号解読/エピローグ)のナビ・ロジック
   features/         機能単位のロジック
     achievements-check.js
     admin.js        管理者ブロードキャスト
@@ -46,7 +52,10 @@ js/
   rooms/            隠し部屋(イースターエッグ)ごとのHTML生成
     basement.js / basement2.js / basement3-zero.js / radio.js / lab.js
     mirror-moon.js / origin-founders.js / redacted-monitor.js
-    shadow-signal.js / archive-final.js / misc-rooms.js
+    shadow-signal.js / archive-final.js
+    mystery-cipher.js  謎の人物ファイル・暗号解読室
+    epilogue.js        エピローグ
+    misc-rooms.js
   bootstrap.js      ナビ関数・キーボード/スワイプ/シェイク入力検出・起動処理(render()呼び出し)
 ```
 

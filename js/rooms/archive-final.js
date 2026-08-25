@@ -41,6 +41,8 @@ function archiveCHTML() {
 }
 
 function finalHTML() {
+  const u = getUnlocked();
+  const epilogueReady = !!(u['egg_mystery_person'] && u['egg_cipher_solved']);
   return `
     <div class="final-bg">
       <div class="final-seal">🌑</div>
@@ -79,6 +81,12 @@ function finalHTML() {
         <span style="color:#2a3344">— スビニィナボンバルディロより —</span>
       </div>
 
+      ${epilogueReady ? `
+        <button onclick="goEpilogue()"
+          style="display:block;width:100%;padding:12px;background:#0a0a20;border:2px solid #333366;border-radius:12px;color:#8899dd;font-size:0.85rem;font-weight:bold;cursor:pointer;margin-top:6px;margin-bottom:8px;transition:all .2s"
+          onmouseover="this.style.borderColor='#6666aa'" onmouseout="this.style.borderColor='#333366'">
+          🌟 まだ何かある気がする…
+        </button>` : ''}
       <button class="btn" style="background:#050510;border:1px solid #222244;color:#445566;font-size:0.82rem;margin-top:8px" onclick="goHome()">← 地上に戻る</button>
     </div>`;
 }

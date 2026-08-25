@@ -45,6 +45,9 @@ function render() {
     case 'signal':    c.innerHTML=signalHTML();    break;
     case 'archive_c': c.innerHTML=archiveCHTML();  break;
     case 'final':     c.innerHTML=finalHTML();     break;
+    case 'mystery_person': c.innerHTML=mysteryPersonHTML(); break;
+    case 'cipher':          c.innerHTML=cipherHTML();        break;
+    case 'epilogue':        c.innerHTML=epilogueHTML();      break;
   }
   _checkAllRooms();
   _setScreenIdleTimers();

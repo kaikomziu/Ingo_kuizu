@@ -401,4 +401,11 @@
     .final-title { animation:finalGlow 4s ease-in-out infinite; color:#6666cc; font-size:1.2rem; font-weight:bold; }
     .final-text { font-size:0.82rem; color:#445566; line-height:2.6; margin:16px 0; text-align:left; }
     .final-seal { border:1px solid #222244; border-radius:50%; width:70px; height:70px; display:flex; align-items:center; justify-content:center; margin:16px auto; font-size:1.8rem; animation:finalGlow 3s ease-in-out infinite; }
-  
+    /* ── 新ストーリー: ジブラ・ジブラの正体 / 暗号解読 / エピローグ ── */
+    .mystery-bg { background:linear-gradient(180deg,#0a0015,#05000a); border:1px solid #2a0044; border-radius:14px; padding:20px; }
+    .cipher-bg { background:linear-gradient(180deg,#000a08,#000504); border:1px solid #003322; border-radius:14px; padding:20px; }
+    .epilogue-bg { background:radial-gradient(ellipse at center,#0a0a18 0%,#020208 100%); border:1px solid #1a1a33; border-radius:14px; padding:24px 20px; text-align:center; }
+    .cipher-choice { display:block; width:100%; padding:12px; background:#001a12; border:2px solid #004433; border-radius:10px; color:#22aa88; font-size:0.9rem; cursor:pointer; margin-bottom:8px; transition:all .15s; }
+    .cipher-choice:hover { border-color:#00cc88; background:#002a1c; }
+    .cipher-dot { width:12px; height:12px; border-radius:50%; background:#113322; display:inline-block; margin:0 3px; transition:all .2s; }
+    .cipher-dot.on { background:#00dd88; box-shadow:0 0 8px #00dd88; }

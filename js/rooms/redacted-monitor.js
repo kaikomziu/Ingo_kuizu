@@ -39,7 +39,12 @@ function redactedHTML() {
         <span style="color:#1a0000;font-size:0.58rem">残りのページは存在しない。</span>
       </div>
 
-      <button class="btn" style="background:transparent;border:1px solid #220000;color:#442222;font-size:0.78rem;margin-top:10px" onclick="G.screen='basement2';render()">← アーカイブへ戻る</button>
+      <button onclick="goMysteryPerson()"
+        style="display:block;width:100%;padding:11px;background:#08000d;border:1px solid #330044;border-radius:10px;color:#663377;font-size:0.78rem;font-weight:bold;cursor:pointer;margin-top:10px;margin-bottom:6px;transition:all .2s"
+        onmouseover="this.style.borderColor='#552266'" onmouseout="this.style.borderColor='#330044'">
+        🕵️ 未解決事件ファイル — ジブラ・ジブラ
+      </button>
+      <button class="btn" style="background:transparent;border:1px solid #220000;color:#442222;font-size:0.78rem" onclick="G.screen='basement2';render()">← アーカイブへ戻る</button>
     </div>`;
 }
 

@@ -41,7 +41,7 @@ function debugHTML() {
     '[INFO] 隠語クイズ v∞.∞.∞ 起動中...',
     '[INFO] vocab.length = ' + vocab.length,
     '[INFO] ACHS.length = ' + ACHS.length,
-    '[WARN] Easter eggs found: ' + Object.keys(getUnlocked()).filter(k=>k.startsWith('egg_')).length + ' / 40',
+    '[WARN] Easter eggs found: ' + Object.keys(getUnlocked()).filter(k=>k.startsWith('egg_')).length + ' / ' + ACHS.filter(a=>a.cat==='🥚 隠し').length,
     '[INFO] プレイヤー: ' + (G.name || '（未設定）'),
     '[DEBUG] localStorage: ' + JSON.stringify(localStorage).length + ' bytes',
     '[WARN] hidden pages: basement, void, garden, debug',
@@ -59,6 +59,7 @@ function debugHTML() {
     <div style="font-size:0.68rem;color:#006600;margin-top:8px;font-family:monospace">> _ <span onclick="goRadio()" style="cursor:pointer" onmouseover="this.style.color='#00ff00'" onmouseout="this.style.color='#00aa00'">radio_access --freq=SIBAKO</span></div>
     <div style="font-size:0.68rem;color:#006600;font-family:monospace">> _ <span onclick="goLab()" style="cursor:pointer" onmouseover="this.style.color='#00ff00'" onmouseout="this.style.color='#00aa00'">lab_entry --override</span></div>
     <div style="font-size:0.68rem;color:#006600;font-family:monospace">> _ <span onclick="goMirror()" style="cursor:pointer" onmouseover="this.style.color='#00ff00'" onmouseout="this.style.color='#00aa00'">mirror_protocol --flip</span></div>
+    <div style="font-size:0.68rem;color:#006600;font-family:monospace">> _ <span onclick="goMysteryPerson()" style="cursor:pointer" onmouseover="this.style.color='#00ff00'" onmouseout="this.style.color='#00aa00'">banshoma_probe --deep</span></div>
     <div style="font-size:0.7rem;color:var(--txt2);text-align:center;margin-top:6px">Type "debug" to access this page</div>
   `;
 }

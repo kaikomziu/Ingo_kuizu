@@ -27,7 +27,8 @@ let _modalCancelCount = 0;
 let _logoClicks = [];
 let _themeSeq = [];
 let _basementSafeSeq = [];
-let _resultIdleTimer = null, _settingsIdleTimer = null, _achsIdleTimer = null, _homeIdleTimer = null;
+let _resultIdleTimer = null, _settingsIdleTimer = null, _achsIdleTimer = null, _homeIdleTimer = null, _cipherIdleTimer = null;
+let _cipherStep = 0;  // 暗号解読室の正解カウント（0〜3）
 
 let _labRound = 0, _labScore = 0, _labQ = null, _labPhase = 'idle';
 let _radioCh = 0;

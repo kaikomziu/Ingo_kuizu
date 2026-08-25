@@ -48,6 +48,13 @@ document.addEventListener('keydown', e => {
     if(_typeSeq.includes('yolo'))   triggerEgg('egg_type_yolo','🤟','YOLO','You Only Live Once！🤟');
     if(_typeSeq.includes('wtf'))    triggerEgg('egg_type_wtf','😱','WTF...','本当にwtfって打ったの？😱');
     if(_typeSeq.includes('lol'))    triggerEgg('egg_type_lol','😂','lol','何が笑えた？lol😂');
+    // ── 新ストーリー「ジブラ・ジブラの正体」入力トリガー ──
+    if(_typeSeq.includes('yuki'))      triggerEgg('egg_type_yuki','❄️','ゆき呼び','yukiと入力した❄️');
+    if(_typeSeq.includes('neko'))      triggerEgg('egg_type_neko','🐈','トリッピ推し','nekoと入力した🐈');
+    if(_typeSeq.includes('ragurande')) triggerEgg('egg_type_ragurande','👥','ラグランデの一員','ragurandeと入力した👥');
+    if(_typeSeq.includes('banshoma'))  goMysteryPerson();
+    if(_typeSeq.includes('cipher'))    goCipher();
+    if(_typeSeq.includes('epilogue'))  goEpilogue();
   }
 });
 

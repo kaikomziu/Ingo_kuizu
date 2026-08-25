@@ -111,6 +111,12 @@ function radioHTML() {
         onmouseout="this.style.borderColor='#000033';this.style.color='#222255'">
         📡 不明な信号を受信中…
       </button>
+      <button onclick="goMysteryPerson()"
+        style="display:block;width:100%;padding:10px;background:#05000a;border:1px solid #220033;border-radius:10px;color:#442255;font-size:0.75rem;cursor:pointer;margin-bottom:8px;transition:all .2s"
+        onmouseover="this.style.borderColor='#440066';this.style.color='#663388'"
+        onmouseout="this.style.borderColor='#220033';this.style.color='#442255'">
+        🕵️ Ch.4に出てきた「ジブラ・ジブラ」を調査する…
+      </button>
       <button class="btn" style="background:#001a00;border:1px solid #004400;color:#006600;font-size:0.8rem" onclick="goHome()">← 放送終了</button>
     </div>
   `;
