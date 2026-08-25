@@ -9,7 +9,7 @@ const vocab = [
   { word:"ウドンドン",                            meaning:"兄",          category:"人物" },
   { word:"トリッピ",                              meaning:"猫",          category:"人物" },
   { word:"ガラマ",                                meaning:"兄弟",        category:"人物" },
-  { word:"ジブラ・ジブラ",                        meaning:"ばんしょうま",category:"人物" },
+  { word:"ジブラ・ジブラ",                        meaning:"しょうま",    category:"人物" },
   { word:"67",                                    meaning:"ゆき",        category:"人物" },
   { word:"バナナナニート・バンディート",           meaning:"りく",        category:"人物" },
   { word:"トララレロ　トララ",                    meaning:"海",          category:"場所" },

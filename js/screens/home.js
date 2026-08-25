@@ -33,7 +33,7 @@ function homeHTML() {
     <div class="inp-g">
       <label>あなたの名前</label>
       <input type="text" value="${esc(G.name)}" placeholder="名前を入力" maxlength="12"
-             oninput="G.name=this.value;saveName(this.value)">
+             oninput="onNameInput(this.value)">
     </div>
     <div class="rank-bar">
       <div class="rank-top"><span class="rank-name">${rank.name}</span><span class="rank-total">累計正解 ${st.correct}問</span></div>

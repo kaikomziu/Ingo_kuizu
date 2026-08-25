@@ -10,8 +10,8 @@ function mysteryPersonHTML() {
 
       <div style="font-size:0.7rem;color:#8866aa;line-height:2.2;margin-bottom:16px;text-align:left;border-left:2px solid #440066;padding-left:12px">
         SIBAKO語には「ジブラ・ジブラ」という単語がある。<br>
-        意味は「ばんしょうま」。<br>
-        <span style="color:#664488">…「ばんしょうま」とは、何なのか。</span>
+        意味は「しょうま」。<br>
+        <span style="color:#664488">…「しょうま」とは、何なのか。</span>
       </div>
 
       <div style="font-size:0.7rem;color:#8866aa;text-align:left;margin-bottom:4px">📁 調査記録 #1「有力な仮説」</div>
@@ -27,7 +27,7 @@ function mysteryPersonHTML() {
       <div style="font-size:0.7rem;color:#8866aa;text-align:left;margin-bottom:4px;margin-top:12px">📁 調査記録 #2「関連する目撃情報」</div>
       <div class="b2-doc">
         <span style="color:#aa66cc">SIBAKO放送局 秘密チャンネルより：</span><br>
-        「ジブラ・ジブラ（ばんしょうま）の正体についての<br>
+        「ジブラ・ジブラ（しょうま）の正体についての<br>
         　調査は継続中。意味は未だ解読不能。」<br><br>
         <span style="color:#665577;font-size:0.65rem">同時刻、67（ゆき）から暗号信号が届いていたことが判明。</span><br>
         <span style="color:#665577;font-size:0.65rem">「ミャウル ミャウル ミャウル」という3回の反復。</span><br>

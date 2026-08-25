@@ -13,50 +13,63 @@ function goSettings() { G.screen='settings'; render(); }
 
 // ──────────────────────────────────────────
 //  イースターエッグ入力検出
+//  PC(キーボード)・スマホ(名前欄入力)の両方から同じ判定を通す
 // ──────────────────────────────────────────
 
-// ── PC: キーボード ──
+// ── 合言葉チェック本体（末尾10文字のバッファに対して判定） ──
+function checkTypedSeq(seq) {
+  if(seq.includes('pizza'))  triggerEgg('egg_type','⌨️','pizza職人','pizzaと入力して召喚！？🍕🍕🍕');
+  if(seq.includes('debug'))  goDebug();
+  if(seq.includes('079'))    triggerEgg('egg_type_079','💨','079職人','079を入力！おなら好きかw💨');
+  if(seq.includes('bomb'))   triggerEgg('egg_type_bomb','💣','爆弾魔','ポップポップポップサフール💣');
+  if(seq.includes('love'))   triggerEgg('egg_type_love','💕','愛の告白','loveって打ったの照れる💕');
+  if(seq.includes('brrbrr')) triggerEgg('egg_type_brr','🎵','Brr Brr入力者','Brr Brr Patapim！🎵');
+  if(seq.includes('help'))   triggerEgg('egg_type_help','🆘','助けを求める者','助けても隠語で返すよ🆘');
+  if(seq.includes('sudo'))   triggerEgg('egg_type_sudo','🔐','管理者権限','sudo: permission denied🔐');
+  if(seq.includes('nyan'))   triggerEgg('egg_type_nyan','🐱','にゃんこ','ニャー！🐱🌈');
+  if(seq.includes('sibako')) triggerEgg('egg_type_sib','📦','SIBAKO入力者','SIBAKOって打った！？📦');
+  if(seq.includes('radio'))   goRadio();
+  if(seq.includes('mirror'))  goMirror();
+  if(seq.includes('lab'))     { if(G.screen==='home') goLab(); }
+  if(seq.includes('admin'))   goAdmin();
+  if(seq.includes('origin'))  { G.screen='origin';   triggerEgg('egg_origin','📜','SIBAKOの起源','起源の記録に触れた📜'); render(); }
+  if(seq.includes('shadow'))  { G.screen='shadow';   triggerEgg('egg_shadow','👤','影の部屋','影の中に何かを見た👤'); render(); }
+  if(seq.includes('signal'))  { G.screen='signal';   triggerEgg('egg_signal','📡','信号傍受','暗号信号を受信した📡'); render(); }
+  if(seq.includes('redact'))  { G.screen='redacted'; triggerEgg('egg_redacted','🖤','消された記録','黒塗りの真実に触れた🖤'); render(); }
+  if(seq.endsWith('gg'))     triggerEgg('egg_type_gg','🎮','GG','ggと入力！いいゲームだった！🎮');
+  if(seq.includes('yolo'))   triggerEgg('egg_type_yolo','🤟','YOLO','You Only Live Once！🤟');
+  if(seq.includes('wtf'))    triggerEgg('egg_type_wtf','😱','WTF...','本当にwtfって打ったの？😱');
+  if(seq.includes('lol'))    triggerEgg('egg_type_lol','😂','lol','何が笑えた？lol😂');
+  // ── 新ストーリー「ジブラ・ジブラの正体」合言葉 ──
+  if(seq.includes('yuki'))      triggerEgg('egg_type_yuki','❄️','ゆき呼び','yukiと入力した❄️');
+  if(seq.includes('neko'))      triggerEgg('egg_type_neko','🐈','トリッピ推し','nekoと入力した🐈');
+  if(seq.includes('ragurande')) triggerEgg('egg_type_ragurande','👥','ラグランデの一員','ragurandeと入力した👥');
+  if(seq.includes('shoma'))     goMysteryPerson();
+  if(seq.includes('cipher'))    goCipher();
+  if(seq.includes('epilogue'))  goEpilogue();
+}
+
+// ── PC: 物理キーボード ──
 document.addEventListener('keydown', e => {
-  // コナミコマンド
+  // コナミコマンド（矢印キーが必要なため物理キーボード限定。スマホはスワイプ版が別途ある）
   _konamiSeq.push(e.key);
   if(_konamiSeq.length > KONAMI.length) _konamiSeq.shift();
   if(_konamiSeq.join() === KONAMI.join())
     triggerEgg('egg_konami','🕹️','コナミの使徒','↑↑↓↓←→←→BA 入力した！レジェンドすぎる🕹️');
 
-  // "pizza" タイプ + 追加ワード
   if(e.key.length === 1) {
     _typeSeq = (_typeSeq + e.key.toLowerCase()).slice(-10);
-    if(_typeSeq.includes('pizza'))  triggerEgg('egg_type','⌨️','pizza職人','キーボードでpizza召喚！？🍕🍕🍕');
-    if(_typeSeq.includes('debug'))  goDebug();
-    if(_typeSeq.includes('079'))    triggerEgg('egg_type_079','💨','079職人','079を入力！おなら好きかw💨');
-    if(_typeSeq.includes('bomb'))   triggerEgg('egg_type_bomb','💣','爆弾魔','ポップポップポップサフール💣');
-    if(_typeSeq.includes('love'))   triggerEgg('egg_type_love','💕','愛の告白','loveって打ったの照れる💕');
-    if(_typeSeq.includes('brrbrr')) triggerEgg('egg_type_brr','🎵','Brr Brr入力者','Brr Brr Patapim！🎵');
-    if(_typeSeq.includes('help'))   triggerEgg('egg_type_help','🆘','助けを求める者','助けても隠語で返すよ🆘');
-    if(_typeSeq.includes('sudo'))   triggerEgg('egg_type_sudo','🔐','管理者権限','sudo: permission denied🔐');
-    if(_typeSeq.includes('nyan'))   triggerEgg('egg_type_nyan','🐱','にゃんこ','ニャー！🐱🌈');
-    if(_typeSeq.includes('sibako')) triggerEgg('egg_type_sib','📦','SIBAKO入力者','SIBAKOって打った！？📦');
-    if(_typeSeq.includes('radio'))   goRadio();
-    if(_typeSeq.includes('mirror'))  goMirror();
-    if(_typeSeq.includes('lab'))     { if(G.screen==='home') goLab(); }
-    if(_typeSeq.includes('admin'))   goAdmin();
-    if(_typeSeq.includes('origin'))  { G.screen='origin';   triggerEgg('egg_origin','📜','SIBAKOの起源','起源の記録に触れた📜'); render(); }
-    if(_typeSeq.includes('shadow'))  { G.screen='shadow';   triggerEgg('egg_shadow','👤','影の部屋','影の中に何かを見た👤'); render(); }
-    if(_typeSeq.includes('signal'))  { G.screen='signal';   triggerEgg('egg_signal','📡','信号傍受','暗号信号を受信した📡'); render(); }
-    if(_typeSeq.includes('redact'))  { G.screen='redacted'; triggerEgg('egg_redacted','🖤','消された記録','黒塗りの真実に触れた🖤'); render(); }
-    if(_typeSeq.endsWith('gg'))     triggerEgg('egg_type_gg','🎮','GG','ggと入力！いいゲームだった！🎮');
-    if(_typeSeq.includes('yolo'))   triggerEgg('egg_type_yolo','🤟','YOLO','You Only Live Once！🤟');
-    if(_typeSeq.includes('wtf'))    triggerEgg('egg_type_wtf','😱','WTF...','本当にwtfって打ったの？😱');
-    if(_typeSeq.includes('lol'))    triggerEgg('egg_type_lol','😂','lol','何が笑えた？lol😂');
-    // ── 新ストーリー「ジブラ・ジブラの正体」入力トリガー ──
-    if(_typeSeq.includes('yuki'))      triggerEgg('egg_type_yuki','❄️','ゆき呼び','yukiと入力した❄️');
-    if(_typeSeq.includes('neko'))      triggerEgg('egg_type_neko','🐈','トリッピ推し','nekoと入力した🐈');
-    if(_typeSeq.includes('ragurande')) triggerEgg('egg_type_ragurande','👥','ラグランデの一員','ragurandeと入力した👥');
-    if(_typeSeq.includes('banshoma'))  goMysteryPerson();
-    if(_typeSeq.includes('cipher'))    goCipher();
-    if(_typeSeq.includes('epilogue'))  goEpilogue();
+    checkTypedSeq(_typeSeq);
   }
 });
+
+// ── スマホ含む全端末共通: 「あなたの名前」欄に打った文字でも同じ合言葉を判定 ──
+// (ソフトウェアキーボードはkeydownの取得が不安定な機種があるため、
+//  常に表示されている名前入力欄をどの端末からでも使える入力口にしている)
+function onNameInput(v) {
+  G.name = v; saveName(v);
+  checkTypedSeq((v || '').toLowerCase().slice(-10));
+}
 
 // ── スマホ: スワイプでコナミ ──
 (()=>{
