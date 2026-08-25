@@ -17,6 +17,13 @@ function setSetting(k, v) {
       _themeSeq=[]; triggerEgg('egg_duality','☯️','光と闇の狭間','テーマを明暗交互に4回切替！☯️');
     }
   }
+  if(k==='fontSize' && v==='large')
+    triggerEgg('egg_large_font','🔠','大きな文字派','文字サイズを「大」にした🔠');
+  const toggleKeys=['confirm','timer','streak','catBadge','autoNext','taunt'];
+  if(toggleKeys.includes(k)){
+    if(toggleKeys.every(tk=>s[tk]===true))  triggerEgg('egg_all_toggles_on','💡','オール・オン','設定のトグルを全部ONにした💡');
+    if(toggleKeys.every(tk=>s[tk]===false)) triggerEgg('egg_all_toggles_off','🌑','ミニマリスト','設定のトグルを全部OFFにした🌑');
+  }
   render();
 }
 function toggleCat(cat) {
@@ -39,6 +46,9 @@ function applyAccent(name) {
   const c = ACCENTS[name] || ACCENTS.red;
   const r = document.documentElement;
   Object.entries(c).forEach(([k,v]) => r.style.setProperty(k, v));
+  _usedAccents.add(name);
+  if(_usedAccents.size >= Object.keys(ACCENTS).length)
+    triggerEgg('egg_all_accents','🎨','色彩コレクター','全アクセントカラーを試した🎨');
 }
 
 const THEMES = {

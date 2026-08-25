@@ -12,7 +12,9 @@ function homeHTML() {
          <div class="rank-next">最高ランク達成！</div>`;
   }
   const modeCards = Object.entries(MODE_INFO).map(([id,{mi,mn,md}])=>
-    `<div class="mode-card${G.mode===id?' on':''}" onclick="G.mode='${id}';render()">
+    `<div class="mode-card${G.mode===id?' on':''}" onclick="G.mode='${id}';render()"
+       onmousedown="modeHoldStart()" onmouseup="modeHoldEnd()" onmouseleave="modeHoldEnd()"
+       ontouchstart="modeHoldStart()" ontouchend="modeHoldEnd()">
        <div class="mi">${mi}</div><div class="mn">${mn}</div><div class="md">${md}</div>
      </div>`
   ).join('');

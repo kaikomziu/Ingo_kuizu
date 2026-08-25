@@ -81,6 +81,9 @@ function doAnswerQ(idx,sel,correct) {
   if(sl) sl.textContent=getSettings().streak&&G.streak>=3?getStreakCheer(G.streak):'';
   const nxtBtn=document.getElementById('nxt');
   nxtBtn.disabled=false;
+  _quizAnswerPosSeq.push(idx); if(_quizAnswerPosSeq.length>5) _quizAnswerPosSeq.shift();
+  if(_quizAnswerPosSeq.length===5 && _quizAnswerPosSeq.every(p=>p===idx))
+    triggerEgg('egg_same_pos','🎯','いつも同じ場所','5問連続で同じ位置の選択肢を選んだ🎯');
   if(ok && getSettings().autoNext) setTimeout(()=>{ const b=document.getElementById('nxt'); if(b&&!b.disabled) b.click(); },700);
 }
 

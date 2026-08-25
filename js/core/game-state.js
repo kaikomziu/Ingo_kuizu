@@ -30,6 +30,10 @@ let _basementSafeSeq = [];
 let _resultIdleTimer = null, _settingsIdleTimer = null, _achsIdleTimer = null, _homeIdleTimer = null, _cipherIdleTimer = null;
 let _cipherStep = 0;  // 暗号解読室の正解カウント（0〜3）
 
+let _modeHoldTimer = null;       // モードカード長押し用
+let _quizAnswerPosSeq = [];      // クイズ回答の選択肢位置バッファ（同じ場所を選び続けたか判定）
+let _usedAccents = new Set();    // 試したことのあるアクセントカラー
+
 let _labRound = 0, _labScore = 0, _labQ = null, _labPhase = 'idle';
 let _radioCh = 0;
 let _mirrorFlipped = false;
