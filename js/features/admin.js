@@ -4,7 +4,7 @@
 // 平文ではなくSHA-256ハッシュで保持(ソースを見てもパスワードが読めない)
 // 変更したいときはブラウザのコンソールで下記を実行してハッシュを再生成し、貼り替える:
 //   sha256Hex('新しいパスワード').then(console.log)
-const ADMIN_PASS_HASH = '48428ee00e9568480383a88834610a1b17e54d6cd2361283a2d031f391f57ea5';
+const ADMIN_PASS_HASH = '217f48d803c097b11f642556e277308663a2043af7d6815f95aa2785f07421e8';
 let _adminAuthed = false;
 let _lastAnnId   = null;
 let _annActive   = false;
