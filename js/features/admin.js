@@ -1,7 +1,10 @@
 // ══════════════════════════════════════════
 //  ADMIN BROADCAST
 // ══════════════════════════════════════════
-const ADMIN_PASS = 'sibako2025'; // ← ここを変えてOK
+// 平文ではなくSHA-256ハッシュで保持(ソースを見てもパスワードが読めない)
+// 変更したいときはブラウザのコンソールで下記を実行してハッシュを再生成し、貼り替える:
+//   sha256Hex('新しいパスワード').then(console.log)
+const ADMIN_PASS_HASH = '48428ee00e9568480383a88834610a1b17e54d6cd2361283a2d031f391f57ea5';
 let _adminAuthed = false;
 let _lastAnnId   = null;
 let _annActive   = false;
@@ -177,9 +180,10 @@ function adminHTML() {
     </div>`;
 }
 
-function adminLogin() {
+async function adminLogin() {
   const v = document.getElementById('admin-pass-inp')?.value || '';
-  if(v === ADMIN_PASS) {
+  const hash = await sha256Hex(v);
+  if(hash === ADMIN_PASS_HASH) {
     _adminAuthed = true;
     _adminStatus = '';
     render();

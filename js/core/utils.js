@@ -32,3 +32,9 @@ function buildQs(num) {
   return shuffle(pool).slice(0, Math.min(num, pool.length)).map(q=>({q, ch:buildChoices(q)}));
 }
 
+// 文字列をSHA-256でハッシュ化(16進文字列)。管理者パスワードの照合などに使用。
+async function sha256Hex(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
