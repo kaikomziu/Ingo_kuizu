@@ -26,3 +26,15 @@ function goEpilogue() {
   triggerEgg('egg_epilogue','🌟','それでも続く物語','隠された真実の、さらに先を見た🌟');
   G.screen='epilogue'; render();
 }
+
+// ── FILE_∞（このゲームの本当の目的） ──
+function goFileInfinity() {
+  triggerEgg('egg_file_infinity','🗝️','FILE_∞の真実','消えたはずの最後のファイルを復元した🗝️');
+  G.screen='file_infinity'; _visitedRooms.add('file_infinity'); render(); _checkAllRooms();
+}
+
+// ── トリッピの正体（"neko"と入力して発見） ──
+function goTrippi() {
+  triggerEgg('egg_type_neko','🐈','トリッピ推し','nekoと入力してトリッピの正体を発見🐈');
+  G.screen='trippi'; _visitedRooms.add('trippi'); render(); _checkAllRooms();
+}

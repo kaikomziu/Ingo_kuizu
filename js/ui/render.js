@@ -48,6 +48,8 @@ function render() {
     case 'mystery_person': c.innerHTML=mysteryPersonHTML(); break;
     case 'cipher':          c.innerHTML=cipherHTML();        break;
     case 'epilogue':        c.innerHTML=epilogueHTML();      break;
+    case 'file_infinity':   c.innerHTML=fileInfinityHTML();  break;
+    case 'trippi':          c.innerHTML=trippiHTML();        break;
   }
   _checkAllRooms();
   _setScreenIdleTimers();

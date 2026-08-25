@@ -36,6 +36,12 @@ function archiveCHTML() {
         <span style="color:#0a0a0a">誰が削除したかは、もうわかりません。</span>
       </div>
 
+      <button onclick="goFileInfinity()"
+        style="display:block;width:100%;padding:12px;background:#0d0d0d;border:2px solid #333333;border-radius:12px;color:#888888;font-size:0.85rem;font-weight:bold;cursor:pointer;margin-bottom:10px;transition:all .2s"
+        onmouseover="this.style.borderColor='#666666';this.style.color='#bbbbbb'"
+        onmouseout="this.style.borderColor='#333333';this.style.color='#888888'">
+        🗝️ FILE_∞.txt を復元する…
+      </button>
       <button class="btn" style="background:transparent;border:1px solid #151515;color:#222222;font-size:0.78rem" onclick="G.screen='basement3';render()">← 地下2階へ戻る</button>
     </div>`;
 }

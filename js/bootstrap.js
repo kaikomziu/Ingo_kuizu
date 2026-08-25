@@ -42,7 +42,7 @@ function checkTypedSeq(seq) {
   if(seq.includes('lol'))    triggerEgg('egg_type_lol','😂','lol','何が笑えた？lol😂');
   // ── 新ストーリー「ジブラ・ジブラの正体」合言葉 ──
   if(seq.includes('yuki'))      triggerEgg('egg_type_yuki','❄️','ゆき呼び','yukiと入力した❄️');
-  if(seq.includes('neko'))      triggerEgg('egg_type_neko','🐈','トリッピ推し','nekoと入力した🐈');
+  if(seq.includes('neko'))      goTrippi();
   if(seq.includes('ragurande')) triggerEgg('egg_type_ragurande','👥','ラグランデの一員','ragurandeと入力した👥');
   if(seq.includes('shoma'))     goMysteryPerson();
   if(seq.includes('cipher'))    goCipher();
